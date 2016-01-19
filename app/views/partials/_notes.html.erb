@@ -1,0 +1,18 @@
+<% notes.each do |n| %>
+	<h2><%= n.title %></h2>
+
+	<form action="/notes/<%= n.id %>" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete">
+	</form>
+
+	<form action="/notes/<%= n.id %>" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="_method" value="patch">
+		<textarea name="description"><%= n.description %></textarea>
+		<input type="submit" value="Update">
+	</form>
+
+	<hr>
+<% end %>	
